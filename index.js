@@ -1,13 +1,13 @@
-import express from "express";
-import cors from "cors";
-import routes from "./routes/routes.js";
-import { getHome } from "./routes/home.js";
+import express from 'express';
+import cors from 'cors';
+
+import exampleRoute from './src/routes/example-route.js';
 
 const port = 4000;
 const server = express();
 
 server.use(cors());
 
-server.get(routes.home, getHome);
+server.get(exampleRoute.route, exampleRoute.getRoute);
 
 server.listen(port);
