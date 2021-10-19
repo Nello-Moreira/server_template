@@ -1,6 +1,8 @@
+import { internalErrorResponse } from '../helpers/helpers.js';
+
 import { getAllExamples } from '../data/example-route.js';
 
-import { internalErrorResponse } from '../helpers.js';
+import exampleSchema from '../validation/exampleValidation.js';
 
 const route = '/example-route';
 
