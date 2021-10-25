@@ -1,6 +1,6 @@
 import { internalErrorResponse } from '../helpers/helpers.js';
 
-import { getAllExamples } from '../data/example-route.js';
+import { getAllExamples } from '../data/exampleRouteTable.js';
 
 import exampleSchema from '../validation/exampleValidation.js';
 

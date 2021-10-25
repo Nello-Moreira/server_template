@@ -1,13 +1,7 @@
-import express from 'express';
-import cors from 'cors';
-
-import exampleRoute from './src/routes/example-route.js';
+import server from './src/server.js';
 
 const port = 4000;
-const server = express();
-server.use(cors());
-server.use(express.json());
 
-server.get(exampleRoute.route, exampleRoute.getRoute);
-
-server.listen(port);
+server.listen(port, () => {
+	console.log(`Server listening on port ${port}`);
+});
