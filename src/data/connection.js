@@ -2,14 +2,20 @@ import pg from 'pg';
 
 const { Pool } = pg;
 
-const config = {
-	port: 5432,
-	user: 'postgres',
-	password: '123456',
-	host: 'localhost',
-	database: 'example_data',
-};
+let dbConnection;
 
-const dbConnection = new Pool(config);
+try {
+	const config = {
+		port: process.env.DB_PORT,
+		user: process.env.DB_USER,
+		password: process.env.DB_PASSWORD,
+		host: process.env.DB_HOST,
+		database: process.env.DB_DATABASE,
+	};
+
+	dbConnection = new Pool(config);
+} catch (error) {
+	console.log(error);
+}
 
 export default dbConnection;

@@ -1,6 +1,6 @@
-import supertest from 'supertest';
 import server from '../src/server.js';
-import dbConnection from '../src/data/connection';
+import supertest from 'supertest';
+import dbConnection from '../src/data/connection.js';
 import exampleRoute from '../src/routes/exampleRoute.js';
 
 const someTest = async () => {
@@ -10,7 +10,7 @@ const someTest = async () => {
 
 const routeTests = () => {
 	beforeAll(() => {
-		dbConnection.query('DELETE FROM example');
+		dbConnection.query('DELETE FROM examples');
 	});
 
 	it('should return something', someTest);
