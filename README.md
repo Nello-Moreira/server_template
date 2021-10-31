@@ -16,5 +16,5 @@ This is a template to build a web server.
 | ------------------------- | ---------------------------------------------------------------------------------- |
 | npm run start:production  | Start server at production mode                                                    |
 | npm run start:development | Start server at development mode                                                   |
-| npm run start             | Start server at test driven design mode (it runs all tests each time files change) |
+| npm run start             | Start server at test driven development mode (it runs all tests each time files change) |
 | npm run test              | Run all tests once                                                                 |
