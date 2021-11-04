@@ -15,7 +15,7 @@ const createEnvs = ({ username, password, databaseName }) => {
 				}`,
 				`DB_USER=${username}\nDB_PASSWORD=${password}\nDB_PORT=5432\nDB_HOST=localhost\nDB_DATABASE=${
 					env ? `${databaseName}_${env}` : `${databaseName}`
-				}
+				}\nPORT=8080
                 `
 			);
 		} catch (error) {

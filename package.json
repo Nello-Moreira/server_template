@@ -5,9 +5,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start:production": "NODE_ENV=production node ./index.js",
+		"start": "NODE_ENV=production node ./index.js",
 		"start:development": "NODE_ENV=development nodemon ./index.js",
-		"start": "NODE_ENV=test npx jest --watch",
+		"start:test_driven": "NODE_ENV=test npx jest --watch",
 		"test": "NODE_ENV=test npx jest"
 	},
 	"repository": {
