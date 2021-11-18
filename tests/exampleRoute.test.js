@@ -1,19 +1,10 @@
-import server from '../src/server.js';
 import supertest from 'supertest';
-import dbConnection from '../src/data/connection.js';
-import exampleRoute from '../src/routes/exampleRoute.js';
+import server from '../src/server.js';
+import exampleRoute from '../src/controllers/exampleRoute.js';
 
-const someTest = async () => {
-	const response = await supertest(server).get(exampleRoute.route);
-	expect(response.status).toBe(200);
-};
-
-const routeTests = () => {
-	beforeAll(() => {
-		dbConnection.query('DELETE FROM examples');
+describe('Tests for get /example-route', () => {
+	it('should return something', async () => {
+		const response = await supertest(server).get(exampleRoute.route);
+		expect(response.status).toBe(501);
 	});
-
-	it('should return something', someTest);
-};
-
-describe('Tests for route', routeTests);
+});

@@ -1,5 +1,5 @@
 import dbConnection from './connection.js';
 
-const searchAllExamples = () => dbConnection.query(`SELECT * FROM examples`);
+const searchAllExamples = () => dbConnection.query('SELECT * FROM examples');
 
-export { searchAllExamples };
+export default searchAllExamples;
