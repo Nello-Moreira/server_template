@@ -3,3 +3,7 @@
 
 # environments
 *.env
+
+# configs
+create-role.sql
+database_name.txt
