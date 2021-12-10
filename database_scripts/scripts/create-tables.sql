@@ -1,4 +1,7 @@
 CREATE TABLE "examples" (
-  "id" SERIAL PRIMARY KEY,
-  "user_id" TEXT NOT NULL
+	"id" serial NOT NULL,
+	"username" TEXT NOT NULL,
+	CONSTRAINT "examples_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
 );

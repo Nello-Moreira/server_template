@@ -1,10 +1,10 @@
-import '../setup/dotenvSetup.js';
+import '../setup/dotenvSetup';
 import express from 'express';
 import cors from 'cors';
 
-import databaseErrorMiddleware from './middlewares/databaseError.js';
+import databaseErrorMiddleware from './middlewares/databaseError';
 
-import exampleRouter from './routers/example.js';
+import exampleRouter from './routers/example';
 
 const server = express();
 server.use(cors());

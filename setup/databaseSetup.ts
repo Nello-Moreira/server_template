@@ -2,18 +2,13 @@ import { execFile } from 'child_process';
 import readlineSync from 'readline-sync';
 import fs from 'fs';
 
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+const databaseScriptsFolderPath = './database_scripts';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const database_path =
-	__dirname.split('/').slice(0, -1).join('/') + '/database_scripts';
-
-const createDatabase = databaseName => {
-	const writeDatabaseNameFile = databaseName => {
+const createDatabase = (databaseName: string) => {
+	const writeDatabaseNameFile = (databaseName: string) => {
 		try {
 			fs.writeFileSync(
-				`${database_path}/database_name.txt`,
+				`${databaseScriptsFolderPath}/database_name.txt`,
 				`${databaseName}`
 			);
 		} catch (error) {
@@ -22,13 +17,18 @@ const createDatabase = databaseName => {
 	};
 
 	writeDatabaseNameFile(databaseName);
-	execFile(`${database_path}/create-database.sh`);
+	execFile(`${databaseScriptsFolderPath}/create-database.sh`);
 };
 
-const createRoleScript = ({ username, password }) => {
+interface User {
+	username: string;
+	password: string;
+}
+
+const createRoleScript = ({ username, password }: User) => {
 	try {
 		fs.writeFileSync(
-			`${database_path}/scripts/create-role.sql`,
+			`${databaseScriptsFolderPath}/scripts/create-role.sql`,
 			`DO\n$$\nBEGIN\n\tIF NOT EXISTS (\nSELECT FROM pg_catalog.pg_roles WHERE rolname='${username}'\n) THEN\nCREATE ROLE ${username} WITH SUPERUSER CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD '${password}';\nEND IF;\nEND\n$$;`
 		);
 	} catch (error) {
@@ -56,9 +56,7 @@ const getPassword = () => {
 		});
 
 		if (firstTry !== secondTry) {
-			console.log(
-				"The password you entered doesn't match. Please try again."
-			);
+			console.log("The password you entered doesn't match. Please try again.");
 		} else {
 			return firstTry;
 		}

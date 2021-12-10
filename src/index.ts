@@ -1,5 +1,5 @@
 /* eslint no-console: 0 */
-import server from './server.js';
+import server from './server';
 
 const port = process.env.PORT;
 

@@ -1,13 +1,14 @@
 import fs from 'fs';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const pathToCreate = './';
 
-const createEnvs = ({ username, password, databaseName }) => {
-	const pathToCreate = __dirname.split('/').slice(0, -1).join('/');
-
-	const writeEnvsData = (env) => {
+interface Settings {
+	username: string;
+	password: string;
+	databaseName: string;
+}
+const createEnvs = ({ username, password, databaseName }: Settings) => {
+	const writeEnvsData = (env: string) => {
 		try {
 			fs.writeFileSync(
 				`${env ? `${pathToCreate}/.${env}.env` : `${pathToCreate}/.env`}`,
@@ -22,7 +23,7 @@ const createEnvs = ({ username, password, databaseName }) => {
 		}
 	};
 
-	writeEnvsData();
+	writeEnvsData('');
 	writeEnvsData('development');
 	writeEnvsData('test');
 };

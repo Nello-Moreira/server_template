@@ -12,7 +12,7 @@ function createConfig() {
 		};
 	}
 	return {
-		port: process.env.DB_PORT,
+		port: Number(process.env.DB_PORT),
 		user: process.env.DB_USER,
 		password: process.env.DB_PASSWORD,
 		host: process.env.DB_HOST,

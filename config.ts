@@ -4,9 +4,9 @@ import {
 	getPassword,
 	createDatabase,
 	createRoleScript,
-} from './setup/databaseSetup.js';
+} from './setup/databaseSetup';
 
-import { createEnvs } from './setup/envSetup.js';
+import { createEnvs } from './setup/envSetup';
 
 const mainFunction = () => {
 	const databaseName = getDatabaseName();
