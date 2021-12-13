@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import exampleService from '../services/example';
-import ExampleError from '../errors/Example';
+import NoContentError from '../errors/NoContent';
+import HttpStatusCodes from '../enums/statusCodes';
 
 async function getRoute(
 	request: Request,
@@ -10,13 +11,13 @@ async function getRoute(
 	try {
 		await exampleService.searchExamples();
 
-		return response.sendStatus(501);
+		return response.sendStatus(HttpStatusCodes.notImplemented);
 	} catch (error) {
-		if (error.name === 'ExampleError') {
-			return response.sendStatus(501);
+		if (error instanceof NoContentError) {
+			return response.sendStatus(HttpStatusCodes.notImplemented);
 		}
 
-		next(error);
+		return next(error);
 	}
 }
 

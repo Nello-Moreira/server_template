@@ -4,27 +4,26 @@
 		"node": true,
 		"jest": true
 	},
-	"extends": ["airbnb-base"],
+	"extends": ["airbnb-base", "airbnb-typescript/base"],
 	"parserOptions": {
-		"ecmaVersion": 13,
-		"sourceType": "module"
+		"project": "./tsconfig.json"
 	},
 	"rules": {
-		"import/extensions": [
-			"error",
-			{
-				"js": "ignorePackages"
-			}
+		"indent": "off",
+		"@typescript-eslint/indent": [
+			1,
+			"tab",
+			{ "SwitchCase": 1, "VariableDeclarator": 1 }
 		],
-		"indent": [2, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }],
 		"no-tabs": 0,
-		"comma-dangle": [
+		"@typescript-eslint/comma-dangle": [
 			"error",
 			{
 				"arrays": "always-multiline",
 				"objects": "always-multiline",
 				"imports": "always-multiline",
 				"exports": "always-multiline",
+				"enums": "always-multiline",
 				"functions": "never"
 			}
 		]
