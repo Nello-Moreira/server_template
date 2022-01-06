@@ -1,9 +1,8 @@
-import dbConnection from './connection';
-import User from '../protocols/User.interface';
+import { getRepository } from 'typeorm';
+import Example from './entities/Example';
 
-async function searchAllExamples(): Promise<User[]> {
-	const examples = await dbConnection.query('SELECT * FROM examples');
-	return examples.rows;
+async function searchAllExamples(): Promise<Example[]> {
+	return getRepository(Example).find();
 }
 
 export default { searchAllExamples };

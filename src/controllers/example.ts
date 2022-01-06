@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
+import HttpStatusCodes from '../enums/statusCodes';
 import exampleService from '../services/example';
 import NoContentError from '../errors/NoContent';
-import HttpStatusCodes from '../enums/statusCodes';
 
 async function getRoute(
 	request: Request,
@@ -14,7 +14,7 @@ async function getRoute(
 		return response.sendStatus(HttpStatusCodes.notImplemented);
 	} catch (error) {
 		if (error instanceof NoContentError) {
-			return response.sendStatus(HttpStatusCodes.notImplemented);
+			return response.sendStatus(HttpStatusCodes.noContent);
 		}
 
 		return next(error);

@@ -8,8 +8,6 @@ DATABASE=$(cat $DIR_PATH/database_name.txt);
 DEV='_development';
 TEST='_test';
 
-echo $DATABASE$'_teste'
-
 echo "Checking postgres' status..." &&
 checkPostgres &&
 

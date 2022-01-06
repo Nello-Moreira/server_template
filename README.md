@@ -27,7 +27,7 @@ This will create a production, a development and a test database and envs variab
 | Command                   | Action                                                                                  |
 | ------------------------- | --------------------------------------------------------------------------------------- |
 | npm run start             | Start server at production mode                                                         |
-| npm run start:development | Start server at development mode                                                        |
+| npm run start:dev | Start server at development mode                                                        |
 | npm run start:test_driven | Start server at test driven development mode (it runs all tests each time files change) |
 | npm run test              | Run all tests once                                                                      |
 | npm run build             | transpile typescript files to javascript files at dist folder                           |

@@ -1,8 +1,8 @@
 import exampleRepository from '../repositories/example';
 import NoContentError from '../errors/NoContent';
-import User from '../protocols/User.interface';
+import Example from '../repositories/entities/Example';
 
-async function searchExamples(): Promise<User[]> {
+async function searchExamples(): Promise<Example[]> {
 	const examples = await exampleRepository.searchAllExamples();
 
 	if (examples.length === 0) {

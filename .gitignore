@@ -7,3 +7,6 @@
 # configs
 create-role.sql
 database_name.txt
+
+# dist directory
+/dist
